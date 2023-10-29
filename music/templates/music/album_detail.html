@@ -1,0 +1,25 @@
+{% extends 'music/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div>
+        <div class="card bg-dark text-white text-center">
+            <div class="row no-gutters">
+                <div class="col-auto p-5">
+                    <img src="{{ object.cover.cover.url }}" class="img-fluid" alt="">
+                </div>
+                <div class="col">
+                    <div class="card-block p-5">
+                        <h4 class="card-title">{{ object.title}}</h4>
+                        <p class="card-subtitle">{{ object.author}}</p>
+                        <div class="list-group p-5">
+                            {% for item in object.songs.all %}
+                                <a href="{% url 'song_detail' item.id %}" class="list-group-item text-white text-center list-group-item-action bg-dark">{{ item.title }}</a>
+                            {% endfor %}
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

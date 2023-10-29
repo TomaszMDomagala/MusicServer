@@ -1,0 +1,20 @@
+{% extends 'music/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div>
+        <div class="col-md-12" style="margin: 3%;">
+            <div class="row" style="margin: 3%;">
+                {% for item in song_list %}
+                    <div class="card bg-dark text-white text-center" style="width: 18rem; margin:3%">
+                        <img src="{{ item.cover.cover.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ item.title}}</h5>
+                        <a href="{% url 'song_detail' item.id %}" class="btn btn-secondary">{{ item.author }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

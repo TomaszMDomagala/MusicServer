@@ -1,0 +1,22 @@
+{% extends 'music/base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <script src="{% static 'music/music_player.js' %}"></script>
+    <div class="p-5">
+        <div class="card bg-dark text-white text-center" style="width: 32rem;">
+            <img src="{{ object.cover.cover.url }}" class="card-img" alt="...">
+            <div class="card-img-top p-2">
+                <h5 class="card-title">{{ object.title }}</h5>
+                <h7 class="card-subtitle">{{ object.author }}</h7>
+                <div class="model-body p-2">
+                    <audio autoplay controls style="width:100%">
+                        <source src="{{ object.audio.url }}" type="audio/mpeg">
+                        <source src="audio.org" type="audio/org">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+
+            {% load django_bootstrap5 %}
+            {% bootstrap_css %}
+            {% bootstrap_javascript %}
+            {% bootstrap_messages %}
+
+            <link rel="stylesheet" type="text/css" href="{% static 'music/main.css' %}">
+            <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+            <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+            <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+            <title>Django</title>
+
+    </head>
+
+    <body class="bg-secondary">
+        <div>
+            {% block sidebar %}
+
+              <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+                <a class="navbar-brand" href="#">Django</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{% url 'album_list' %}">Album</a>
+                    <a class="nav-item nav-link" href="{% url 'song_list' %}">Songs</a>
+                    <a class="nav-item nav-link" href="{% url 'bookmark_list' %}">Bookmarks</a>
+                    <a class="nav-item nav-link" href="{% url 'create_bookmark' %}">New Bookmark</a>
+                    <a class="nav-item nav-link" href="{% url 'food_list' %}">Foods</a>
+                    <a class="nav-item nav-link" href="{% url 'create_food' %}">New Food</a>
+                  </div>
+                </div>
+              </nav>
+
+            {% endblock %}
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </body>
+
+</html>
